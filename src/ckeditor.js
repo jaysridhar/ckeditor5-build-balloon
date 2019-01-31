@@ -3,7 +3,6 @@
  * For licensing, see LICENSE.md.
  */
 
-// The editor creator to use.
 import BalloonEditorBase from '@ckeditor/ckeditor5-editor-balloon/src/ballooneditor';
 
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
@@ -28,67 +27,86 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
+import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
+
 export default class BalloonEditor extends BalloonEditorBase {}
 
 // Plugins to include in the build.
 BalloonEditor.builtinPlugins = [
-	Essentials,
-	UploadAdapter,
-	Autoformat,
-	Bold,
-	Italic,
-	BlockQuote,
-	CKFinder,
-	EasyImage,
-	Heading,
-	Image,
-	ImageCaption,
-	ImageStyle,
-	ImageToolbar,
-	ImageUpload,
-	Link,
-	List,
-	MediaEmbed,
-	Paragraph,
-	PasteFromOffice,
-	Table,
-	TableToolbar
+    Essentials,
+    UploadAdapter,
+    Autoformat,
+    FontFamily,
+    FontSize,
+    Bold,
+    Italic,
+    Alignment,
+    BlockQuote,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    Link,
+    List,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar
 ];
 
 // Editor configuration.
 BalloonEditor.defaultConfig = {
-	toolbar: {
-		items: [
-			'heading',
-			'|',
-			'bold',
-			'italic',
-			'link',
-			'bulletedList',
-			'numberedList',
-			'imageUpload',
-			'blockQuote',
-			'insertTable',
-			'mediaEmbed',
-			'undo',
-			'redo'
-		]
-	},
-	image: {
-		toolbar: [
-			'imageStyle:full',
-			'imageStyle:side',
-			'|',
-			'imageTextAlternative'
-		]
-	},
-	table: {
-		contentToolbar: [
-			'tableColumn',
-			'tableRow',
-			'mergeTableCells'
-		]
-	},
-	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'en'
+    toolbar: {
+	items: [
+	    'heading',
+	    '|',
+	    'bold',
+	    'italic',
+	    'link',
+	    '|',
+	    'alignment',
+	    'fontFamily',
+	    'fontSize',
+	    '|',
+	    'bulletedList',
+	    'numberedList',
+	    'imageUpload',
+	    'blockQuote',
+	    'insertTable',
+	    'mediaEmbed',
+	    'undo',
+	    'redo'
+	]
+    },
+    fontFamily: {
+        options: [
+            'default',
+            'Open Sans', 'Arial', 'sans-serif',
+            'Courier New, Courier, monospace',
+        ]
+    },
+    image: {
+	toolbar: [
+	    'imageStyle:full',
+	    'imageStyle:side',
+	    '|',
+	    'imageTextAlternative'
+	]
+    },
+    table: {
+	contentToolbar: [
+	    'tableColumn',
+	    'tableRow',
+	    'mergeTableCells'
+	]
+    },
+    // This value must be kept in sync with the language defined in webpack.config.js.
+    language: 'en'
 };
